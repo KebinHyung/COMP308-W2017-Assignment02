@@ -1,0 +1,43 @@
+<!--
+Name: Kevin Luu
+File name: contact.ejs
+Website name: KLuu Profile
+File Description: Contains the contact tab of site.
+--><% include ../partials/header.ejs %>
+
+    <!--MAIN CONTENT-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+        <div class="well well-md">
+          <h1><%= title %></h1>
+          </div>
+           <div class="panel panel-default">
+  <div class="panel-body">
+            <h4><b>Contact me at: </b></h4>
+            <p> <i class="fa fa-address-card-o" aria-hidden="true"></i> Email: kluu8@my.centennialcollege.ca</p>
+            <p><i class="fa fa-phone-square" aria-hidden="true"></i> Cell: (647)-861-8228</p>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> Mail to: 46 Green Spring Drive</p>
+            <hr>
+            <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Have a question? </div>
+
+  <!-- Table -->
+  <table class="table">
+  <tr><td>Name: </td><td><input type="text" placeholder="Full Name"></td></tr>
+  <tr><td>Subject:  </td><td><input type="text" placeholder="Subject"></td></tr>
+  <tr><td>Content:  </td><td><textarea name="Text1" cols="40" rows="5" placeholder="What do I need to know?"></textarea></tr>
+  <tr><td><input type="button" onclick="alert('Message Sent!')" value="Click to Send"></td></tr>
+
+  </table>
+</div>  
+</div>
+</div>       
+        </div>
+      </div>
+    </div>
+
+<%include ../partials/footer.ejs %>
+
+ 

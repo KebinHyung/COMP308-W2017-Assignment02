@@ -1,0 +1,7 @@
+/* Custom CSS goes here */
+body {
+  background-image: url("/Assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+  }

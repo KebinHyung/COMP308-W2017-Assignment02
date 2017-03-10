@@ -1,0 +1,64 @@
+<!--
+Name: Kevin Luu
+File name: projects.ejs
+Website name: KLuu Profile
+File Description: Contains the projects tab of site.
+-->
+<% include ../partials/header.ejs %>
+
+    <!--MAIN CONTENT-->
+    <div class="container">
+      <div class="row">
+              <div class="col-md-offset-3 col-md-6">
+        <div class="well well-md">
+        <h2>Games I've created</h2>
+        </div>
+        </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active" align="middle">
+      <img src="Assets/images/LittleSpy.png">
+      <div class="carousel-caption">
+        <h3>Little Spy</h3>
+        <p>Final Project of Game Programming 1 Course at Centennial College</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="Assets/images/Escape.png">
+      <div class="carousel-caption">
+        <h3>Escape the maze!</h3>
+        <p>3D FPS Assignment for Game Programming 1 Course at Centennial College</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="Assets/images/Shooter.png">
+      <div class="carousel-caption">
+        <h3>Survive!</h3>
+        <p>2D Shooter Assignment for Game Programming 1 Course at Centennial College</p>
+      </div>
+    </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<%include ../partials/footer.ejs %>
+
+ 
