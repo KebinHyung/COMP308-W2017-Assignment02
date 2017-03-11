@@ -36,7 +36,6 @@ db.once('open', () => {
 let index = require('./routes/index'); // top level routes
 let books = require('./routes/books'); // routes for books
 let contacts = require('./routes/contacts'); // routes for contacts
-let auth = require('./routes/auth'); //routes for authentication
 
 
 let app = express();
@@ -76,7 +75,6 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/books', books);
 app.use('/contacts', contacts);
-app.use('/auth', auth);
 
 
 
