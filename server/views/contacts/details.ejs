@@ -1,0 +1,38 @@
+<% include ../partials/header.ejs %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+        <div class="well well-md">
+          <h1><%= title %></h1>
+          </div>
+           <div class="panel panel-default">
+          <div class="panel-body">
+            <form class="form" method="post">
+              <div class="form-group">
+                <label for="NameTextField">Name</label>
+                <input type="text" class="form-control" id="NameTextField"
+                placeholder="Full Name" name="name" value="<%= contacts.Name %>" required>
+              </div>
+              <div class="form-group">
+                <label for="PhoneNumTextField">Phone Number</label>
+                <input type="text" class="form-control" id="PhoneNumTextField"
+                placeholder="Phone Number" name="PhoneNum" value="<%= contacts.PhoneNum %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="EmailTextField">Email</label>
+                <input type="text" class="form-control" id="EmailTextField"
+                placeholder="Email Address" name="Email" value="<%= contacts.Email %>"  required>
+              </div>
+
+              <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
+              <a href="/contacts" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
+            </form>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer.ejs %>

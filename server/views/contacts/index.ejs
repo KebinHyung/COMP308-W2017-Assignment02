@@ -1,0 +1,63 @@
+<!--
+ Kevin Luu
+ Feb. 25, 2017
+ Purpose: The UI for CRUD using mongoDB and mongoose 
+-->
+<% include ../partials/header.ejs %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+        <div class="well well-md">
+          <h3>Favourite contacts List </h3>
+          </div>
+          <div class="panel panel-default">
+          <div class="panel-body">
+          <a href="/contacts/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a contact</a>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="text-center">Phone Number</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                <!-- Template Row -->
+                <% for (let count = 0; count < contacts.length; count++) { %>
+                <tr>
+                  <td><%= contacts[count].Name %></td>
+                  <td class="text-center">$<%= contacts[count].PhoneNum %></td>
+                  <td class="text-center"><%= contacts[count].Email %></td>
+                  <!--EDIT-->
+                  <td class="text-center">
+                    <a href="/contacts/<%= contacts[count]._id %>" class="btn btn-primary">
+              <i class="fa fa-pencil-square-o"></i> Edit</a>
+                  </td>
+                  <!--DELETE-->
+                  <td class="text-center">
+                    <a href="/contacts/delete/<%= contacts[count]._id %>" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i> Delete</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer.ejs %>
+
+
