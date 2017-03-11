@@ -4,11 +4,11 @@ let Schema = mongoose.Schema; //alias for mongoose Schema
 let passportLocalMongoose = require('passport-local-mongoose');
 
 let UserSchema = new Schema({
-  username: {
+  Name: {
     type: String,
     default: '',
     trim: true,
-    required: 'username is required'
+    required: 'Name is required'
   },
  /* password: {
     type: String,
@@ -22,11 +22,11 @@ let UserSchema = new Schema({
     trim: true,
     required: 'email is required'
   },
-  displayName: {
+  PhoneNum: {
     type: String,
     default: '',
     trim: true,
-    required: 'Display Name is required'
+    required: 'Phone Number is required'
   },
   created: {
     type: Date,

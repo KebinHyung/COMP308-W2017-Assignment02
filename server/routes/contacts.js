@@ -23,7 +23,7 @@ function requireAuth(req, res, next) {
 }
 
 /* GET contacts List page. READ */
-router.get('/', (req, res, next) => {
+router.get('/', requireAuth,  (req, res, next) => {
   // find all contacts in the contacts collection
   contact.find( (err, contacts) => {
     if (err) {
@@ -42,7 +42,7 @@ router.get('/', (req, res, next) => {
 
 
 //  GET the contact Details page in order to add a new contact
-router.get('/add', (req, res, next) => {
+router.get('/add', requireAuth,  (req, res, next) => {
 
    res.render('contacts/details', {
     title: "Add a new contact",
@@ -51,7 +51,7 @@ router.get('/add', (req, res, next) => {
 });
 
 // POST process the contact Details page and create a new contact - CREATE
-router.post('/add', (req, res, next) => {
+router.post('/add', requireAuth,  (req, res, next) => {
 
     let newcontact = contact({
       "Name": req.body.name,
@@ -69,7 +69,7 @@ router.post('/add', (req, res, next) => {
 });
 
 // GET the contact Details page in order to edit an existing contact
-router.get('/:id',(req, res, next) => {
+router.get('/:id', requireAuth, (req, res, next) => {
 try {
       // get a reference to the id from the url
       let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
@@ -94,7 +94,7 @@ try {
 });
 
 // POST - process the information passed from the details form and update the document
-router.post('/:id', (req, res, next) => {
+router.post('/:id', requireAuth,  (req, res, next) => {
 // get a reference to the id from the url
     let id = req.params.id;
 
@@ -117,7 +117,7 @@ router.post('/:id', (req, res, next) => {
 });
 
 // GET - process the delete by user id
-router.get('/delete/:id',(req, res, next) => {
+router.get('/delete/:id', requireAuth, (req, res, next) => {
 // get a reference to the id from the url
     let id = req.params.id;
 

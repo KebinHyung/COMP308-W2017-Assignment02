@@ -8,24 +8,30 @@
       <% } %>
 		<div class="row">
             <div class="col-md-offset-4 col-md-4">
+            <div class="well well-md">
                 <h1>User Registration</h1>
+                </div>
+
+                <div class="panel panel-default">
+          <div class="panel-body">
                 <form method="post">
+                <fieldset class="form-group">
+                        <label for="Name">Name *</label>
+                        <input name="Name" type="text" class="form-control" required />
+                    </fieldset>
                     <fieldset class="form-group">
                         <label for="email">Email: *</label>
                         <input name="email" type="email" class="form-control" required autofocus />
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="username">Username: *</label>
-                        <input name="username" type="text" class="form-control" required />
+                        <label for="PhoneNum">Phone Number *</label>
+                        <input name="PhoneNum" type="text" class="form-control" required />
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="password">Password: *</label>
                         <input name="password" type="password" class="form-control" required />
                     </fieldset>
-                    <fieldset class="form-group">
-                        <label for="displayName">Display Name: *</label>
-                        <input name="displayName" type="text" class="form-control" required />
-                    </fieldset>
+                    
                     <fieldset class="form-group text-right">
                         <input type="submit" class="btn btn-success" value="Submit"/>
                         <a href="/">
@@ -33,6 +39,8 @@
                         </a>
                     </fieldset>
                 </form>
+                </div>
+                </div>
             </div>
         </div>
 	</main>

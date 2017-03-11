@@ -1,96 +1,48 @@
-/*
-Kevin Luu
-Feb.25, 2017
-Added Functionality - Authentication
-*/
-
-
 // modules required for routing
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
 
-
 // define the user model
 let UserModel = require('../models/users');
-let User = UserModel.User; // alias for User Model - User object
+let User = UserModel.User; // alias for User
 
-// define the game model
-let contact = require('../models/contacts');
-
-// create a function to check if the user is authenticated
-function requireAuth(req, res, next) {
-  // check if the user is logged in
-  if(!req.isAuthenticated()) {
-    return res.redirect('/login');
-  }
-  next();
-}
-
-/* GET home page. wildcard */
-router.get('/', (req, res, next) => {
-  res.render('content/index', {
-    title: 'Home',
-    contacts: '',
-    displayName: req.user ? req.user.displayName : ''
-   });
-});
-
-/* GET about page. */
-router.get('/about', (req, res, next) => {
-  res.render('content/about', {
-    title: 'About'
-   });
-});
-
-/* GET products page. */
-router.get('/projects', (req, res, next) => {
-  res.render('content/projects', {
-    title: 'Projects'
-   });
-});
-
-/* GET services page. */
-router.get('/services', (req, res, next) => {
-  res.render('content/services', {
-    title: 'Services'
-   });
-});
-
-
-/* GET contact page. */
-router.get('/contact', (req, res, next) => {
-  res.render('content/contact', {
-    title: 'Contact',
-    contacts: '',
-    displayName: req.user ? req.user.displayName : ''
-   });
-});
-
-// GET /login - render the login view
-router.get('/login', (req, res, next)=>{
-  // check to see if the user is not already logged in
+/* GET /login - render the login view */
+router.get('/login', (req, res, next) => {
+  // check to see  if the user is not already logged index
   if(!req.user) {
     // render the login page
     res.render('auth/login', {
-      title: "Login",
-      contacts: '',
+      title: 'Login',
       messages: req.flash('loginMessage'),
-      displayName: req.user ? req.user.displayName : ''
+      username: req.user ? req.user.username : ''
     });
     return;
   } else {
-    return res.redirect('/contacts'); // redirect to contacts list
+    return res.redirect('/');
   }
 });
 
-// POST /login - process the login attempt
+// POST /login - process the login page
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/contacts',
-  failureRedirect: '/login',
-  failureFlash: 'bad login'
+  successRedirect: '/',
+  failureRedirect: '/user/login',
+  failureFlash: true
 }));
+
+// GET /register - render the register page
+router.get('/register', (req, res, next) =>{
+  // check if the user is not already logged in
+  if(!req.user) {
+    // render the registration page
+    res.render('auth/register', {
+      title: 'Register',
+      messages: req.flash('registerMessage'),
+      username: req.user ? req.user.username : ''
+    });
+  }
+});
 
 // GET /register - render the registration view
 router.get('/register', (req, res, next)=>{
@@ -115,8 +67,8 @@ router.post('/register', (req, res, next)=>{
     new User({
       username: req.body.username,
       //password: req.body.password,
-      email: req.body.email,
-      displayName: req.body.displayName
+      PhoneNum: req.body.PhoneNum,
+      Email: req.body.Email
     }),
     req.body.password,
     (err) => {

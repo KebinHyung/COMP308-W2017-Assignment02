@@ -29,13 +29,14 @@ mongoose.connect(process.env.URI || config.URI);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log("Conneced to MongoDB...");
+  console.log("Connected to MongoDB...");
 });
 
 // define routers
 let index = require('./routes/index'); // top level routes
 let books = require('./routes/books'); // routes for books
 let contacts = require('./routes/contacts'); // routes for contacts
+let auth = require('./routes/auth'); //routes for authentication
 
 
 let app = express();
@@ -64,11 +65,18 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// passport user config
+  let UserModel = require('./models/users');
+  let User = UserModel.User;
+  passport.use(User.createStrategy());
+  passport.serializeUser(User.serializeUser());
+
 
 // route redirects
 app.use('/', index);
 app.use('/books', books);
 app.use('/contacts', contacts);
+app.use('/auth', auth);
 
 
 
